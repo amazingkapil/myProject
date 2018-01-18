@@ -1,0 +1,58 @@
+
+   <home></home>    
+  <span>{{cs.showform}}</span>
+  <div *ngIf="cs.showform">
+    <button  style="margin-left:30.00%" class="btn btn-lg btn-warning">
+  <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</button>
+  </div> 
+<div> 
+    
+    <p-accordion [multiple]="true">
+        <p-accordionTab header="All Clients"  [selected]="true">
+          <div id="clientGrid" style="width:100%; max-width:1600px;">
+            <div [ngClass]="{'ag-grid-6-rows':6==gridRows, 'ag-grid-10-rows':10==gridRows, 'ag-grid-15-rows':15==gridRows, 'ag-grid-20-rows':20==gridRows, 'ag-grid-25-rows':25==gridRows}">
+                <ag-grid-angular style="width: 100%; height: inherit;" class="ag-fresh" [gridOptions]="gridOptions">
+              <!--(rowClicked)="onRowSelected($event)"-->
+              </ag-grid-angular>
+            </div>
+          </div>
+        </p-accordionTab>
+        </p-accordion>
+<!-- <ag-grid-angular style="width: 1000px; height: 200px;" class="ag-theme-fresh"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    >
+</ag-grid-angular>
+</div> 
+ <div style="margin-left:100px;margin-right:100px;">
+      <h1>All Clients</h1>        
+      <table class="table table-striped client">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>SSN</th>
+          
+            
+          
+          
+    </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of cs.client">
+            <td>{{client.firstName}}</td>
+            <td>{{client.lastName}}</td>
+            <td>{{client.country}}</td>
+            <td>{{client.city}}</td>
+            <td>{{client.email}}</td>
+            <td>{{client.SSN}}</td>
+            </tr>
+          
+        </tbody>
+      </table> -->
+<!-- </div>  -->
+  
+  

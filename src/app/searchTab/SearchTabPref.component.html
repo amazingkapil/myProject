@@ -1,0 +1,75 @@
+<html>
+    <head>
+   
+    <title>Search Client Form</title>
+    </head>
+    
+    <body>
+      <home></home>
+        <div style="margin-left:200px">
+    <h1>Client Search Form</h1>
+  </div>
+    <br>
+    <form name="searchForm" #f="ngForm" (submit) = "searchClient(f)">
+    <fieldset>
+   
+  
+        
+    <div class="container">
+         <div class="form-row">
+           <div class="form-group col-md-6">
+             <label for="pref" class="col-form-label">Investment Preference</label>
+             <input type="text" class="form-control form-control-sm" name="pref"  [(ngModel)]="pref" required placeholder="Enter the Investment Preference">
+           </div>
+           </div>
+           </div>
+           </fieldset>
+          
+           <button type="submit" class="btn btn-primary" style="margin-left:200px" (click)="DropdownVar=2">Search</button>
+          </form>
+  
+          <div  *ngIf="DropdownVar === 2" class="container">
+          <h1>Searched Client/s are as below:</h1>
+      
+                
+      <table class="table table-striped client">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>SSN</th>
+            
+           
+           
+  </tr>
+        </thead>
+         <tbody ng-switch="client.length">
+            <tr ng-switch-when="1">
+            <td>{{client.firstName}}</td>
+            <td>{{client.lastName}}</td>
+            <td>{{client.country}}</td>
+            <td>{{client.city}}</td>
+            <td>{{client.email}}</td>
+            <td>{{client.SSN}}</td> 
+            </tr> 
+            </tbody>  
+   
+           <tbody ng-switch-default>
+            <tr *ngFor="let cs of client">
+            <td>{{cs.firstName}}</td>
+            <td>{{cs.lastName}}</td>
+            <td>{{cs.country}}</td>
+            <td>{{cs.city}}</td>
+            <td>{{cs.email}}</td>
+            <td>{{cs.SSN}}</td> 
+            </tr> 
+            </tbody>  
+            
+      </table>
+    </div>
+  
+        </body>
+        </html>

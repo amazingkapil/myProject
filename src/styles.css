@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #01579b ;
+  
+    text-align: center;
+}
+.jumbotron{
+    background-color: #01579b;
+}
+.carousel slide{
+    length:650px;
+    width: 490px;
+    position: center;
+}
+body{
+    font-family: monospace;
+}

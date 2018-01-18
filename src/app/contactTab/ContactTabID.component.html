@@ -1,0 +1,75 @@
+<html>
+    <head>
+   
+    <title>Search Contact History Form</title>
+    </head>
+    
+    <body>
+      <home></home>
+        <div style="margin-left: 210px;">
+    <h1>Contact History Form</h1>
+  </div>
+    <br>
+    <form name="searchForm" #f="ngForm" (submit) = "searchContact(f)">
+    <fieldset>
+   
+  
+        
+    <div class="container">
+         <div class="form-row">
+           <div class="form-group col-md-6">
+             <label for="searchID" class="col-form-label">Client ID</label>
+             <input type="text" class="form-control form-control-sm" name="searchID"  [(ngModel)]="searchID" required placeholder="Enter client id">
+           </div>
+           </div>
+           </div>
+           </fieldset>
+          
+           <button type="submit" class="btn btn-primary" style="margin-left: 210px;" (click)="DropdownVar=2">Search</button>
+          </form>
+  
+          <div  *ngIf="DropdownVar === 2" class="container">
+          <h1>Searched Contact History is as below:</h1>
+      
+                
+      <table class="table table-striped client">
+        <thead>
+          <tr>
+            <th>Client Id</th>
+            <th>Contact Type</th>
+            <th>Contact Date</th>
+            <th>Contact Description</th>
+            <th>First Name</th>
+                      
+           
+           
+  </tr>
+        </thead>
+         <tbody ng-switch="contactHistory.length">
+            <tr ng-switch-when="1">
+            <td>{{contactHistory.clientId}}</td>
+            <td>{{contactHistory.contactType}}</td>
+            <td>{{contactHistory.contactDate}}</td>
+            <td>{{contactHistory.contactDescription}}</td>
+            <td>{{contactHistory.firstName}}</td>
+           
+            </tr> 
+            </tbody>  
+   
+           <tbody ng-switch-default>
+            <tr *ngFor="let cs of contactHistory">
+           
+              <td>{{cs.clientId}}</td>
+              <td>{{cs.contactType}}</td>
+              <td>{{cs.contactDate}}</td>
+              <td>{{cs.contactDescription}}</td>
+              <td>{{cs.firstName}}</td>
+              
+            </tr> 
+            </tbody>  
+            
+      </table>
+    </div>
+  
+        </body>
+        </html>

@@ -1,0 +1,99 @@
+<html>
+    <head>
+   
+    <title>Search Client Form</title>
+    </head>
+    
+    <body>
+        <home></home>
+        <div style="margin-left:30.00%">
+    <h1>Client Delete Form</h1>
+  </div>
+    <br>
+    
+    <form name="delete" #f="ngForm" (submit) = "deleteFinalClient(f)">
+    <fieldset>
+   
+  
+        
+    <div class="container">
+         <div class="form-row">
+          <label for="delete" class="col-form-label">Enter SSN</label>
+          
+                      <input type="text" class="form-control form-control-lg" name="SSN" [(ngModel)]="delete" required maxlength="11"   required minlength="3"
+                           #ssna="ngModel" />
+                      <div *ngIf="ssna.invalid && (ssna.dirty || ssna.touched)"  class="alert alert-danger">
+                          <div *ngIf="ssna.errors.required">
+                              SSN is required.
+                         </div>
+                         <div *ngIf="ssna.errors.minlength">
+                              SSN must be at least 3 characters long.
+                         </div>
+                         <div *ngIf="ssna.errors.maxlength">
+                              SSN should be in the 999-99-9999.
+                         </div>
+              </div>
+           </div>
+           </div>
+           </fieldset>
+           <button type="submit" style="margin-left:40.00%;margin-top: 10px;"class="btn btn-info btn-lg" (click)="DropdownVar=2"position="center">Search</button>
+          
+          </form>
+  
+          <div *ngIf="!client && DropdownVar==2 && showload">
+            <button  style="margin-left:30.00%" class="btn btn-lg btn-warning">
+          <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Loading...</button>
+          </div>
+
+          <div  *ngIf="client" class="container">
+          <h1>Searched Client/s are as below:</h1>
+      
+                
+      <table class="table table-striped client">
+        <thead>
+          <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Country</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>SSN</th>
+            
+            
+           
+           
+  </tr>
+        </thead>
+         <tbody ng-switch="client.length">
+            <tr ng-switch-when="1">
+            <td>{{client.firstName}}</td>
+            <td>{{client.lastName}}</td>
+            <td>{{client.country}}</td>
+            <td>{{client.city}}</td>
+            <td>{{client.email}}</td>
+            <td>{{client.SSN}}</td> 
+            <td>
+                <button (click)="deleteFinalClient()">Delete</button>
+            </td>
+            </tr> 
+            </tbody>  
+   
+           <tbody ng-switch-default>
+            <tr *ngFor="let cs of client">
+            <td>{{cs.firstName}}</td>
+            <td>{{cs.lastName}}</td>
+            <td>{{cs.country}}</td>
+            <td>{{cs.city}}</td>
+            <td>{{cs.email}}</td>
+            <td>{{cs.SSN}}</td> 
+            <td>
+                    <button (click)="deleteFinalClient() ">Delete</button>
+                </td>
+                </tr> 
+            </tbody>  
+            
+      </table>
+    </div>
+  
+        </body>
+        </html>

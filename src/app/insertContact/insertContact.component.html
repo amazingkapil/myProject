@@ -1,0 +1,63 @@
+<html>
+    <head>
+   
+    <title>Add Contact History Form</title>
+    </head>
+    
+    <body>
+        <home></home>
+        <div style="margin-left: 200px;">
+    <h1 >Contact History Form</h1>
+</div>
+    <br>
+    
+    <form name="insertForm" #f="ngForm" (submit) = "insertContact(f)">
+    <fieldset>
+   
+    <div class="container">
+         <div class="form-row form-group">
+           <div class="form-group col-md-6">
+             <label for="clientId" class="col-form-label">Client Id</label>
+             <input type="text" class="form-control form-control-sm" name="clientId"  [(ngModel)]="users.clientId">
+           </div>
+
+
+           <div class="form-group">
+            <label for="contactType">Contact Type:</label>
+            <select id="contactType" name="contactType"   class=" form-control-lg" [(ngModel)]="users.contactType">
+                <option selected="selected" value="Call">Call</option>
+                <option value="Email">Email</option>
+                <option value="SMS">SMS</option>
+                <option value="In Person">In Person</option>
+                <option value="Snail Mail">Snail Mail</option>
+                
+            </select>
+       </div>
+ 
+        </div><!-- end of form-row-1 -->
+       
+      <div class="form-row"> 
+            <div class="form-group col-md-4">
+             <label for="contactDate">Contact Date</label>
+             <input type="date" class="form-control"  id="contactDate" aria-describedby="emailHelp" name="contactDate" [(ngModel)]="users.contactDate">
+            </div>
+       
+            <div class="form-group col-md-4">
+             <label for="contactDesc">Contact Description</label>
+             <input type="text" class="form-control form-control-lg" id="contactDescription" aria-describedby="emailHelp" name="contactDescription" [(ngModel)]="users.contactDescription">
+            </div>
+       
+            <div class="form-group col-md-4">
+             <label for="firstName">First Name</label>
+             <input type="text" class="form-control form-control-lg"
+              id="firstName" aria-describedby="emailHelp" name="firstName" placeholder="firstName" [(ngModel)]="users.firstName">
+            </div>
+       </div><!--  end of form-row-2 -->
+       
+    </div>
+    </fieldset>
+    <button type="submit" class="btn btn-primary" style="margin-left: 200px;">Submit</button>
+    </form>
+    </body>
+    </html>
+    

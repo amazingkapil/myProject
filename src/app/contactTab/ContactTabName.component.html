@@ -1,0 +1,88 @@
+<html>
+    <head>
+   
+    <title>Search Contact History Form</title>
+    </head>
+    
+    <body>
+      <home></home>
+        <div style="margin-left: 210px;">
+    <h1>Contact History Form</h1>
+  </div>
+    <br>
+    <form name="searchForm" #f="ngForm" (submit) = "searchContact(f)">
+    <fieldset>
+   
+  
+        
+    <div class="container">
+         <div class="form-row">
+           <div class="form-group col-md-6">
+             <label for="searchName" class="col-form-label">First Name</label>
+             <input type="text" class="form-control form-control-sm" name="searchName"  [(ngModel)]="searchName" required placeholder="Enter first name">
+           </div>
+           </div>
+           </div>
+           </fieldset>
+          
+           <button type="submit" class="btn btn-primary" style="margin-left: 210px;" (click)="DropdownVar=2">Search</button>
+          </form>
+  
+          <div  *ngIf="showform" text-align="center" >
+          <h1>Searched Contact History is as below:</h1>
+          </div>
+          <form *ngIf="showForm">
+            <fieldset>
+    
+                <div class="container">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="ClientID" class="col-form-label">ClientId</label>
+                            <input type="text" class="form-control form-control-lg" name="clientId" [(ngModel)]="contactHistory.clientId"  readonly/>   
+                        </div>
+                </div>
+                <!-- end of form-row-1 -->
+              </div>
+              </fieldset>
+              </form>         
+      <!-- <table class="table table-striped client">
+        <thead>
+          <tr>
+            <th>ClientId</th>
+            <th>Contact Type</th>
+            <th>Contact Date</th>
+            <th>Contact Description</th>
+            <th>First Name</th>
+                      
+           
+           
+  </tr>
+        </thead>
+         <tbody ng-switch="contactHistory.length">
+            <tr ng-switch-when="1">
+            <td>{{contactHistory.ClientId}}</td>
+            <td>{{contactHistory.contactType}}</td>
+            <td>{{contactHistory.contactDate}}</td>
+            <td>{{contactHistory.contactDescription}}</td>
+            <td>{{contactHistory.firstName}}</td>
+           
+            </tr> 
+            </tbody>  
+   
+           <tbody ng-switch-default>
+            <tr *ngFor="let cs of contactHistory">
+           
+              <td>{{cs.SSN}}</td>
+              <td>{{cs.contactType}}</td>
+              <td>{{cs.contactDate}}</td>
+              <td>{{cs.contactDescription}}</td>
+              <td>{{cs.firstName}}</td>
+              
+            </tr> 
+            </tbody>  
+            
+      </table>
+    </div> -->
+
+        </body>
+        </html>
